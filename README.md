@@ -11,7 +11,7 @@ import akka.gemini.{Page,Selector,PhantomExecutor}
 import scala.concurrent.duration._
 
 // Create Browser Session
-val p:Page = PhantomExecutor(isDebug=false) 
+val p:Page = PhantomExecutor(isDebug=false) a
 // Opens page and returns future , that should be completed after successfull page retriveal
 
 val openFuture:Future[Boolean]  = p.open("https://github.com/martende/gemini/") 
@@ -120,6 +120,7 @@ import scala.concurrent.duration._
 object Hi {
   def main(args: Array[String]) = {
   	implicit val system = ActorSystem("MySystem")
+  	PhantomExecutor.initEnvironment
 	val p = PhantomExecutor(isDebug=false)
 	
 	scala.concurrent.Await.result({
